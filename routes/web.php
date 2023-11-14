@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\MainPageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[MainPageController::class, 'index']);
+
+Route::get('/articles',[ArticlesController::class,'index']);
+Route::get('/article/{slug}',[ArticlesController::class,'show']);
