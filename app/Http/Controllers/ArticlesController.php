@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
-
+use App\Models\Tag;
 
 class ArticlesController extends Controller
 {
@@ -21,6 +21,20 @@ class ArticlesController extends Controller
         $article->save();
 
         return view('article.show',['article'=>$article]);
+    }
+
+    public function tag($tagId)
+    {
+        $articles = Tag::with('articles')->where('id','=', $tagId)->first();
+        $articlesCollection = collect($articles->articles);
+
+        return view('article.listByTags',[
+            'articles' => $articlesCollection
+        ]);
+
+        dd($articlesCollection);
+
+        return $articles;
     }
 
 }

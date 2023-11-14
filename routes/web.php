@@ -19,4 +19,6 @@ use App\Http\Controllers\MainPageController;
 Route::get('/',[MainPageController::class, 'index']);
 
 Route::get('/articles',[ArticlesController::class,'index']);
-Route::get('/article/{slug}',[ArticlesController::class,'show']);
+Route::get('/article/{slug}',[ArticlesController::class,'show']); 
+
+Route::get('/articles/tag/{tagId}',[ArticlesController::class, 'tag']);

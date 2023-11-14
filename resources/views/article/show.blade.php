@@ -8,7 +8,7 @@
 
 <hr>
 @foreach ($article->tags as $tag)
-    <span class="badge badge-primary">{{$tag->title}}</span>
+    <a href="/articles/tag/{{$tag->id}}"><span class="badge badge-primary">{{$tag->title}}</a></span>
 @endforeach
 
 <hr>
